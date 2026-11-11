@@ -1,0 +1,150 @@
+/* ==========================================================================
+   📦 ESTILOS DE TARJETA DE ENTE INSTITUCIONAL (Altura Dinámica / Flexible)
+   ========================================================================== */
+
+.ente-card {
+    width: 100%;
+    background-color: #ffffff;
+    color: var(--color-texto-oscuro);
+    min-height: 220px;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 18px 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.ente-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 20px -4px rgba(0, 0, 0, 0.12), 0 4px 8px -2px rgba(0, 0, 0, 0.06);
+}
+
+.ente-card:active {
+    transform: translateY(-1px);
+}
+
+/* Fila Superior: Icono del ente + contador de registros */
+.ente-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.ente-icono {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f6eded;
+    color: var(--color-granate);
+    border: 1px solid rgba(85, 0, 0, 0.12);
+}
+
+.ente-contador {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 64px;
+    padding: 6px 12px;
+    border-radius: 12px;
+    background-color: var(--color-granate);
+    color: #ffffff;
+    box-shadow: 0 4px 10px -2px rgba(85, 0, 0, 0.35);
+    line-height: 1;
+}
+
+.ente-contador-numero {
+    font-size: 1.6rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+}
+
+.ente-contador-label {
+    margin-top: 3px;
+    font-size: 0.62rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    opacity: 0.85;
+}
+
+/* Sección Central: Título del Ente (Permite salto de línea natural hacia abajo) */
+.ente-card-body {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8px 0;
+    width: 100%;
+    height: auto;
+    overflow: visible !important;
+}
+
+/* 2. El título con soporte completo para multilínea */
+.ente-titulo {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    line-height: 1.35;
+    word-break: break-word;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+
+    color: var(--color-granate);
+    -webkit-text-stroke: 1px var(--color-borde);
+}
+
+/* Fila Inferior: Botones de Administrador */
+.ente-card-footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.btn-card-admin {
+    border: none;
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.1s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.btn-card-admin:hover {
+    opacity: 0.85;
+}
+
+.btn-card-admin:active {
+    transform: scale(0.95);
+}
+
+.btn-card-edit {
+    background: #f1f5f9;
+    color: var(--color-texto-oscuro);
+}
+
+.btn-card-delete {
+    background: #dc2626;
+    color: #ffffff !important;
+}

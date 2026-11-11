@@ -1,0 +1,215 @@
+/* ==========================================================================
+   🏛️ ESTILOS PARA HEADER INSTITUCIONAL (Granate y Oro Metálico)
+   ========================================================================== */
+
+.agenda-header {
+    background: linear-gradient(135deg, #550000 0%, #3b0000 100%);
+    color: #E7E5E1;
+    border: 1px solid rgba(200, 161, 92, 0.4);
+    border-radius: 1rem;
+    padding: 20px 28px;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 24px -4px rgba(85, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Franja de Oro Metálico Animada superior */
+.agenda-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #EECE84, #A37A3C, #F8E119, #C8A15C, #AE874E);
+    background-size: 200% 100%;
+    animation: brilloOro 6s linear infinite;
+}
+
+@keyframes brilloOro {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Estructura Interna Flex */
+.header-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    text-align: center;
+}
+
+.header-brand-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.escudo-oficial {
+    width: 68px;
+    height: 68px;
+    object-fit: contain;
+    border-radius: 50%;
+    padding: 3px;
+    background: #ffffff;
+    border: 2px solid #C8A15C;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Títulos y Subtítulos con color forzado para evitar mezclas */
+.titles-block {
+    width: 100%;
+}
+
+.institucion-sub {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #EECE84 !important;
+    /* Dorado claro oficial */
+    margin-bottom: 4px;
+}
+
+.titles-block h1 {
+    font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+    font-weight: 800;
+    color: #ffffff !important;
+    /* Blanco puro obligatorio */
+    margin: 0 0 4px 0;
+    letter-spacing: -0.02em;
+}
+
+.badge-intranet {
+    display: inline-block;
+    font-size: 0.7rem;
+    background: rgba(238, 206, 132, 0.2);
+    color: #EECE84 !important;
+    padding: 2px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(238, 206, 132, 0.4);
+    vertical-align: middle;
+    margin-left: 6px;
+    font-weight: 600;
+}
+
+.directorio-sub {
+    font-size: 0.82rem;
+    color: #E7E5E1 !important;
+    /* Crema institucional claro */
+    margin: 0;
+    font-weight: 500;
+}
+
+.admin-pill {
+    display: inline-block;
+    background: rgba(220, 38, 38, 0.35);
+    color: #fca5a5 !important;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 4px;
+    border: 1px solid rgba(252, 165, 165, 0.4);
+    margin-left: 6px;
+}
+
+/* Bloque de Metadatos y Fecha (Corregido con fondo sólido translúcido) */
+.header-meta-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding-right: 35px;
+}
+
+.last-update-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.45);
+    /* Fondo oscuro sólido para destacar */
+    border: 1px solid rgba(200, 161, 92, 0.5);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+}
+
+.dot-live {
+    width: 7px;
+    height: 7px;
+    background-color: #34d399;
+    /* Verde vivo */
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.3);
+}
+
+.update-label {
+    color: #E7E5E1 !important;
+    font-weight: 500;
+}
+
+.update-date {
+    color: #EECE84 !important;
+    /* Dorado brillante obligatorio */
+    font-weight: 700;
+}
+
+/* Botón Contador de Cambios (Admin) */
+.counter-btn {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #EECE84 !important;
+    border: 1px solid rgba(200, 161, 92, 0.5);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.counter-btn:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff !important;
+}
+
+/* ==========================================
+   ESCRITORIO / PANTALLAS GRANDES (>= 768px)
+   ================================---------- */
+@media (min-width: 768px) {
+    .header-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+    }
+
+    .header-brand-group {
+        flex-direction: row;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .titles-block {
+        text-align: left;
+    }
+
+    .header-meta-group {
+        width: auto;
+        align-items: flex-end;
+    }
+}

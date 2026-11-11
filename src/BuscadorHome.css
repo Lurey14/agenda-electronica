@@ -1,0 +1,114 @@
+/* Cabecera de la vista de entes: título + buscadores */
+.home-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.home-header h2 {
+  color: var(--color-granate);
+  margin: 0;
+}
+
+.home-buscador {
+  flex: 1 1 220px;
+  max-width: 320px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+}
+
+/* Empuja el buscador de funcionario hacia la derecha */
+.home-buscador.funcionario {
+  margin-left: auto;
+}
+
+/* Lista de resultados de búsqueda por funcionario */
+.resultados-funcionario-total {
+  margin: 0 0 10px 0;
+  color: #475569;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.resultados-funcionario-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  border: 1px solid var(--color-borde);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.resultados-funcionario-lista li + li {
+  border-top: 1px solid #e2e8f0;
+}
+
+.resultado-funcionario-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease;
+}
+
+.resultado-funcionario-item:hover,
+.resultado-funcionario-item:focus-visible {
+  background-color: #fdfaf6;
+  outline: none;
+}
+
+.resultado-funcionario-nombre {
+  color: var(--color-granate);
+  font-weight: 700;
+}
+
+.resultado-funcionario-ente {
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Resalta la tarjeta a la que se llegó desde el buscador */
+.funcionario-card.destacado {
+  animation: card-destacado 2.5s ease;
+}
+
+@keyframes card-destacado {
+  0%,
+  60% {
+    box-shadow: 0 0 0 4px #A37A3C, 0 4px 14px rgba(0, 0, 0, 0.15);
+  }
+
+  100% {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  }
+}
+
+@media (max-width: 768px) {
+  .home-buscador {
+    max-width: none;
+  }
+
+  .home-buscador.funcionario {
+    margin-left: 0;
+  }
+
+  .resultado-funcionario-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,81 @@
+/* Contenedor principal de la barra de filtros */
+.filters-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+}
+
+/* Estilos compartidos para inputs y selects */
+.select-filter,
+.input-search {
+    width: 100%;
+    padding: 12px 14px;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #1e293b;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.select-filter:focus,
+.input-search:focus {
+    outline: none;
+    border-color: #3182ce;
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.15);
+}
+
+/* Botón de nuevo registro */
+.btn-new-record {
+    background-color: #2b6cb0;
+    color: #ffffff;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    width: 100%;
+}
+
+.btn-new-record:hover {
+    background-color: #2c5282;
+}
+
+.btn-new-record:active {
+    transform: scale(0.98);
+}
+
+/* ==========================================
+   DISEÑO EN ESCRITORIO (A partir de 768px / 1024px)
+   ================================---------- */
+@media (min-width: 1024px) {
+    .filters-bar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .select-filter,
+    .input-search,
+    .btn-new-record {
+        flex: 1;
+        min-width: 0;
+        /* Previene desbordamientos en grid/flex */
+    }
+
+    .input-search {
+        flex: 1.5;
+        /* Damos un poco más de espacio al buscador */
+    }
+}

@@ -1,0 +1,99 @@
+/* Contenedor principal de la barra de estado del ente */
+.ente-active-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.08);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Botón de regresar */
+.btn-regresar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.85rem;
+    width: 100%;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    backdrop-filter: blur(4px);
+}
+
+.btn-regresar:hover {
+    filter: brightness(0.9);
+}
+
+.btn-regresar:active {
+    transform: scale(0.98);
+}
+
+.flecha {
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+/* Información del Ente Actual */
+.ente-info {
+    text-align: center;
+    flex: 1;
+    min-width: 0;
+}
+
+.ente-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+}
+
+/* Título del ente con tamaño responsivo fluido y elipsis automática */
+.ente-titulo {
+    font-size: clamp(0.95rem, 3.5vw, 1.25rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ==========================================
+   MEDIA QUERIES PARA PANTALLAS MEDIANAS / GRANDES (>= 640px)
+   ================================---------- */
+@media (min-width: 640px) {
+    .ente-active-header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 20px;
+    }
+
+    .btn-regresar {
+        width: auto;
+    }
+
+    .ente-info {
+        text-align: right;
+    }
+}
+
+/* Ocultar el texto secundario "a Entes" en pantallas extremadamente reducidas */
+@media (max-width: 380px) {
+    .texto-largo {
+        display: none;
+    }
+}
