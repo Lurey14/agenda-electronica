@@ -23,6 +23,7 @@
 | SM-08 | Abrir alta y cancelar | Se cierra el formulario sin guardar | PASS (BDD Cypress, CP-08) |
 | SM-09 | Cerrar sesión | Desaparecen controles admin; consulta sigue disponible | Pendiente |
 | SM-10 | Redimensionar a escritorio y móvil | La agenda sigue visible y navegable | Pendiente |
+| SM-11 | Como administrador, pulsar “Exportar Excel” | Descarga un `.xlsx` con nombre `Directorio_TCP_Bolivia_...` | PASS (BDD Cypress, CP-13) |
 
 ## Registro de ejecución
 

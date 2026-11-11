@@ -18,6 +18,7 @@ dist-ssr
 coverage/
 cypress/screenshots/
 cypress/videos/
+cypress/downloads/
 evidence/cypress/
 evidence/manual/
 .yarn/install-state.gz

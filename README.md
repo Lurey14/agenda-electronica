@@ -104,6 +104,8 @@ yarn test:e2e
 
 La suite E2E inicia Vite en `127.0.0.1:5173` con modo `test` y ejecuta los escenarios Gherkin usando Cypress y Cucumber. No guardar datos durante esos escenarios; el archivo JSON fuente debe conservarse.
 
+La ejecución `yarn test:e2e` corre Cypress en modo headless (sin ventana) y guarda capturas/video. Para revisar el runner gráfico, inicia Vite con `yarn dev` en una terminal y ejecuta `npx cypress open` en otra; selecciona E2E Testing, un navegador y `agenda.feature`.
+
 ### Documentación y evidencias
 
 - Plan: `docs/qa/plan-pruebas-light.md`

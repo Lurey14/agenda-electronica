@@ -1,24 +1,37 @@
-# language: es
-Característica: Agenda institucional por rol
+# language: en
+Feature: Agenda institucional por rol
   Como visitante o administrador
   Quiero utilizar solo las funciones permitidas para mi rol
   Para consultar y mantener el directorio institucional
 
+  Background:
+    Given que abro la agenda como visitante
+
   @HU-01 @CP-02 @CP-04
-  Escenario: Visitante consulta la agenda sin herramientas administrativas
-    Dado que abro la agenda como visitante
-    Cuando ingreso a un ente institucional
-    Entonces veo funcionarios activos y no veo controles administrativos
+  Scenario: Visitante consulta la agenda sin herramientas administrativas
+    When ingreso a un ente institucional
+    Then veo funcionarios activos
+    But no veo controles administrativos
 
-  @HU-02 @CP-06 @CP-08
-  Escenario: Administrador inicia sesión y abre el formulario de alta
-    Dado que abro la agenda como visitante
-    Cuando inicio sesión como administrador de prueba
-    Y abro un ente institucional
-    Entonces puedo abrir y cancelar el formulario de nuevo funcionario
+  @HU-02 @CP-06 @CP-07
+  Scenario Outline: El acceso de administrador valida las credenciales
+    When inicio sesión con usuario "<usuario>" y contraseña "<contraseña>"
+    Then el acceso de administrador resulta "<resultado>"
 
-  @HU-02 @CP-07
-  Escenario: La agenda rechaza una contraseña incorrecta
-    Dado que abro la agenda como visitante
-    Cuando intento iniciar sesión con una contraseña incorrecta
-    Entonces se rechaza el acceso de administrador
+    Examples:
+      | usuario | contraseña | resultado |
+      | admin   | admin      | concedido |
+      | admin   | incorrecta | rechazado |
+
+  @HU-02 @CP-08
+  Scenario: Administrador abre y cancela el formulario de alta
+    When inicio sesión como administrador de prueba
+    And abro un ente institucional
+    Then puedo abrir y cancelar el formulario de nuevo funcionario
+
+  @HU-02 @CP-13
+  Scenario: Administrador descarga el directorio en Excel
+    When inicio sesión como administrador de prueba
+    And abro un ente institucional
+    And descargo el directorio en Excel
+    Then se descarga un archivo Excel del directorio

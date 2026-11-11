@@ -12,7 +12,7 @@ Comprobar mediante pruebas manuales, unitarias y BDD que el directorio permite c
 |---|---|---|
 | Smoke manual/exploratorio | Navegador, localhost | Carga, navegación, búsqueda/filtros y acceso por rol |
 | Unitarias | Jest + Testing Library | Autenticación/sesión, operaciones de entes y validación del formulario |
-| BDD/E2E | Cypress + Cucumber + Gherkin | Consulta visitante, acceso admin, rechazo de credenciales y validación requerida |
+| BDD/E2E | Cypress + Cucumber + Gherkin | Consulta visitante, validación de credenciales por rol, gestión de formulario y descarga real de Excel |
 | Casos de prueba | Excel | Casos CP trazables a historias HU, pasos, resultado y evidencia |
 | CI/CD | GitHub Actions | lint, Jest, build y BDD en push y pull request |
 
@@ -64,6 +64,7 @@ Comprobar mediante pruebas manuales, unitarias y BDD que el directorio permite c
 | Smoke manual | `smoke-test-manual.md` | Capturas de navegador por rol |
 | Jest | `src/**/__tests__` | Consola y reporte de cobertura |
 | BDD Cypress/Cucumber/Gherkin | `cypress/e2e/agenda.feature` | Resultado y capturas Cypress |
+| Descarga Excel | Escenario `CP-13` | Archivo `.xlsx` descargado y comprobado por Cypress |
 | HUs positivas/negativas | `historias-usuario.md` | Matriz HU/CP |
 | Casos Excel | `outputs/01a1cc82-77b9-7ca2-a9d9-4c471246a208/casos-prueba-agenda.xlsx` | Libro cumplimentado |
 | Localhost | `yarn dev` / `yarn test:e2e` | Navegador en `127.0.0.1:5173` |

@@ -28,6 +28,7 @@
 
 - **Positivo:** credenciales de prueba válidas habilitan operaciones administrativas.
 - **Positivo:** el formulario de alta acepta un envío con el nombre obligatorio presente.
+- **Positivo:** el administrador puede descargar el directorio como un archivo Excel válido.
 - **Negativo:** contraseña errónea no activa admin ni crea sesión y avisa al usuario.
 - **Negativo:** nombre vacío detiene el envío y muestra validación.
 - **Negativo:** crear un ente duplicado se rechaza.
@@ -43,6 +44,7 @@
 | CP-10 | Rechazo de ente duplicado | Negativo | Jest |
 | CP-11 | Cierre de sesión | Positivo | Jest/manual |
 | CP-12 | Cancelar confirmación de eliminación | Negativo | Manual |
+| CP-13 | Administrador descarga y valida el archivo Excel | Positivo | BDD/Cypress |
 
 ## Registro de ejecución
 
