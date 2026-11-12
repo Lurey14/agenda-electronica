@@ -1,0 +1,57 @@
+name: Calidad de software
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    name: Lint, Jest, build y BDD
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      VITE_ADMIN_USER: admin
+      VITE_ADMIN_PASSWORD: admin
+
+    steps:
+      - name: Obtener el código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Activar Corepack y restaurar dependencias
+        run: |
+          corepack enable
+          yarn install --immutable
+
+      - name: ESLint
+        run: yarn lint
+
+      - name: Pruebas unitarias Jest
+        run: yarn test --runInBand --coverage
+
+      - name: Compilar aplicación
+        run: yarn build
+
+      - name: Pruebas BDD Cypress y Cucumber
+        run: yarn test:e2e
+
+      - name: Publicar reportes y capturas
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidencias-qa
+          path: |
+            coverage/lcov-report/
+            evidence/cypress/
+          if-no-files-found: warn
+          retention-days: 14
